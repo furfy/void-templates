@@ -1,0 +1,32 @@
+homepage="http://www.supermodel3.com/"
+license="GPL-3.0-only"
+maintainer="furfy <13049652+furfy@users.noreply.github.com>"
+pkgname=supermodel
+revision=1
+short_desc="A Sega Model 3 Arcade Emulator"
+version=84aa972
+makedepends="git zlib-devel glu-devel SDL2-devel SDL2_net-devel"
+depends="SDL2 SDL2_net"
+
+do_fetch()
+{
+	git clone https://github.com/trzy/Supermodel.git ${pkgname}-${version}
+	cd ${pkgname}-${version}
+	git checkout ${version}
+}
+
+do_build()
+{
+	make -f Makefiles/Makefile.UNIX NET_BOARD=1
+}
+
+do_install()
+{
+	vbin bin/supermodel
+	vdoc Docs/README.txt
+	vlicense Docs/LICENSE.txt
+	vmkdir /usr/share/supermodel/Assets
+	vmkdir /usr/share/supermodel/Config
+	vcopy Assets/* /usr/share/supermodel/Assets
+	vcopy Config/* /usr/share/supermodel/Config
+}
