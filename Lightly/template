@@ -1,0 +1,26 @@
+homepage="https://github.com/boehs/Lightly"
+license="GPL-2.0-only"
+maintainer="furfy <13049652+furfy@users.noreply.github.com>"
+pkgname=Lightly
+revision=1
+short_desc="A modern style for Qt applications (updated fork)"
+version=1a831f7
+makedepends="git cmake gettext extra-cmake-modules kcmutils-devel
+ kdecoration-devel qt5-declarative-devel qt5-x11extras-devel"
+depends="frameworkintegration kdecoration kwayland breeze-icons
+ hicolor-icon-theme"
+build_style="cmake"
+configure_args="-DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib
+ -DBUILD_TESTING=OFF"
+
+do_fetch()
+{
+	git clone https://github.com/boehs/Lightly.git ${pkgname}-${version}
+	cd ${pkgname}-${version}
+	git checkout ${version}
+}
+
+post_install()
+{
+	vlicense COPYING
+}
