@@ -19,3 +19,8 @@ do_fetch()
 	cd ${pkgname}-${version}
 	git checkout tags/${version}
 }
+
+post_install()
+{
+	vlicense LICENSE
+}

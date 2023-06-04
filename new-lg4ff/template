@@ -26,6 +26,5 @@ do_install()
 	vcopy dkms.conf /usr/src/${pkgname}-${version}
 	vcopy Makefile /usr/src/${pkgname}-${version}
 	vcopy Kbuild /usr/src/${pkgname}-${version}
-	vdoc README.md
 	vlicense LICENSE
 }
