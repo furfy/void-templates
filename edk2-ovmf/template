@@ -1,0 +1,25 @@
+homepage="https://github.com/tianocore/edk2"
+license="BSD-2-Clause-Patent"
+maintainer="furfy <13049652+furfy@users.noreply.github.com>"
+pkgname=edk2-ovmf
+revision=1
+short_desc="Modern, feature-rich firmware development environment for the UEFI specifications"
+version=202305
+depends="qemu"
+distfiles="https://europe.mirror.pkgbuild.com/extra/os/x86_64/edk2-ovmf-${version}-${revision}-any.pkg.tar.zst"
+checksum="acfad90bd7a714caaa1a82ef3eb8f3cd88a4f407639af118d2c50d171bc27bb1"
+
+do_install()
+{
+	vmkdir /usr/share/edk2/ia32
+	vmkdir /usr/share/edk2/x64
+	vmkdir /usr/share/qemu/firmware
+	vcopy usr/share/edk2/ia32/* /usr/share/edk2/ia32
+	vcopy usr/share/edk2/x64/* /usr/share/edk2/x64
+	vcopy usr/share/qemu/firmware/* /usr/share/qemu/firmware
+	vdoc usr/share/doc/edk2-ovmf/Maintainers.txt
+	vdoc usr/share/doc/edk2-ovmf/README
+	vdoc usr/share/doc/edk2-ovmf/ReadMe.rst
+	vlicense usr/share/licenses/edk2-ovmf/License.txt
+	vlicense usr/share/licenses/edk2-ovmf/OvmfPkg.License.txt
+}

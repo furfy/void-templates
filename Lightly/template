@@ -1,7 +1,7 @@
 homepage="https://github.com/boehs/Lightly"
 license="GPL-2.0-only"
 maintainer="furfy <13049652+furfy@users.noreply.github.com>"
-pkgname=lightly
+pkgname=Lightly
 revision=1
 short_desc="A modern style for Qt applications (updated fork)"
 version=1a831f7
