@@ -5,12 +5,12 @@ pkgname=oversteer
 revision=1
 short_desc="Graphical application to configure Logitech Wheels"
 version=0.7.2
-hostmakedepends="pkg-config"
-makedepends="git desktop-file-utils AppStream gettext eudev-libudev-devel
+hostmakedepends="git pkg-config"
+makedepends="desktop-file-utils AppStream gettext eudev-libudev-devel
  python3 python3-gobject python3-pyudev python3-xdg python3-evdev
  python3-matplotlib python3-scipy python3-distutils-extra"
-depends="gettext eudev-libudev python3 python3-gobject python3-pyudev
- python3-xdg python3-evdev python3-matplotlib python3-scipy"
+depends="eudev-libudev python3 python3-gobject python3-pyudev python3-xdg
+ python3-evdev python3-matplotlib python3-scipy"
 build_style=meson
 
 do_fetch()

@@ -1,4 +1,4 @@
-homepage="https://github.com/tianocore/edk2"
+homepage="https://gitlab.archlinux.org/archlinux/packaging/packages/edk2"
 license="BSD-2-Clause-Patent"
 maintainer="furfy <13049652+furfy@users.noreply.github.com>"
 pkgname=edk2-ovmf
@@ -23,3 +23,5 @@ do_install()
 	vlicense usr/share/licenses/edk2-ovmf/License.txt
 	vlicense usr/share/licenses/edk2-ovmf/OvmfPkg.License.txt
 }
+
+# We are using Arch package due to overcomlicated building process, sorry for that.

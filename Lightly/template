@@ -5,7 +5,8 @@ pkgname=Lightly
 revision=1
 short_desc="A modern style for Qt applications (updated fork)"
 version=1a831f7
-makedepends="git cmake gettext extra-cmake-modules kcmutils-devel
+hostmakedepends="git cmake"
+makedepends="gettext extra-cmake-modules kcmutils-devel
  kdecoration-devel qt5-declarative-devel qt5-x11extras-devel"
 depends="frameworkintegration kdecoration kwayland breeze-icons
  hicolor-icon-theme"

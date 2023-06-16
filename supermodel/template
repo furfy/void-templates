@@ -5,7 +5,8 @@ pkgname=supermodel
 revision=1
 short_desc="A Sega Model 3 Arcade Emulator"
 version=84aa972
-makedepends="git zlib-devel glu-devel SDL2-devel SDL2_net-devel"
+hostmakedepends="git"
+makedepends="zlib-devel glu-devel SDL2-devel SDL2_net-devel"
 depends="SDL2 SDL2_net"
 
 do_fetch()
