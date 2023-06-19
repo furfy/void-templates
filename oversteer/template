@@ -15,8 +15,8 @@ build_style=meson
 
 do_fetch()
 {
-	git clone https://github.com/berarma/oversteer.git ${pkgname}-${version}
-	cd ${pkgname}-${version}
+	git clone https://github.com/berarma/oversteer.git ${wrksrc}
+	cd ${wrksrc}
 	git checkout tags/${version}
 }
 

@@ -11,8 +11,8 @@ dkms_modules="$pkgname $version"
 
 do_fetch()
 {
-	git clone https://github.com/berarma/new-lg4ff.git ${pkgname}-${version}
-	cd ${pkgname}-${version}
+	git clone https://github.com/berarma/new-lg4ff.git ${wrksrc}
+	cd ${wrksrc}
 	git checkout tags/${version}
 }
 

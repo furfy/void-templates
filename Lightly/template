@@ -16,8 +16,8 @@ configure_args="-DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_INSTALL_LIBDIR=lib
 
 do_fetch()
 {
-	git clone https://github.com/boehs/Lightly.git ${pkgname}-${version}
-	cd ${pkgname}-${version}
+	git clone https://github.com/boehs/Lightly.git ${wrksrc}
+	cd ${wrksrc}
 	git checkout ${version}
 }
 

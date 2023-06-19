@@ -1,0 +1,37 @@
+pkgname=obs-studio
+version=29.1.2
+revision=1
+build_style=cmake
+configure_args="-DOBS_VERSION_OVERRIDE=${version} -DENABLE_JACK=ON
+ -DENABLE_VST=OFF -DENABLE_AJA=OFF -DCALM_DEPRECATION=ON
+ -DCEF_ROOT_DIR=../cef_binary_5060_linux64"
+hostmakedepends="git curl tar pkg-config swig python3-devel qt6-base"
+makedepends="LuaJIT-devel fdk-aac-devel ffmpeg-devel glu-devel
+ jack-devel libXcomposite-devel libcurl-devel libva-devel
+ pulseaudio-devel python3-devel speexdsp-devel v4l-utils-devel
+ vlc-devel qt6-svg-devel x264-devel mbedtls-devel jansson-devel
+ wayland-devel pipewire-devel libxkbcommon-devel pciutils-devel
+ librist-devel srt-devel json-c++ websocketpp asio nss"
+depends="xset xdg-desktop-portal"
+short_desc="Open Broadcaster Software"
+maintainer="furfy <13049652+furfy@users.noreply.github.com>"
+license="GPL-2.0-or-later"
+homepage="https://obsproject.com"
+changelog="https://github.com/obsproject/obs-studio/releases"
+replaces="obs obs-plugin-browser-bin"
+
+do_fetch()
+{
+	git clone https://github.com/obsproject/obs-studio.git ${wrksrc}
+	cd ${wrksrc}
+	git submodule update --init --recursive plugins/obs-browser
+	git submodule update --init --recursive plugins/obs-websocket
+	git checkout tags/${version}
+	curl https://cdn-fastly.obsproject.com/downloads/cef_binary_5060_linux64.tar.bz2 | tar -xj
+}
+
+pre_configure() {
+	# it's not enough to use -DENABLE_BROWSER ...
+	touch plugins/obs-browser/CMakeLists.txt
+	touch plugins/obs-websocket/CMakeLists.txt
+}

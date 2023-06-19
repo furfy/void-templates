@@ -11,8 +11,8 @@ depends="SDL2 SDL2_net"
 
 do_fetch()
 {
-	git clone https://github.com/trzy/Supermodel.git ${pkgname}-${version}
-	cd ${pkgname}-${version}
+	git clone https://github.com/trzy/Supermodel.git ${wrksrc}
+	cd ${wrksrc}
 	git checkout ${version}
 }
 
