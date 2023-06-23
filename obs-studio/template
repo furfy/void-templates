@@ -1,10 +1,11 @@
 pkgname=obs-studio
 version=29.1.2
 revision=1
+_cefroot=cef_binary_5060_linux64
 build_style=cmake
 configure_args="-DOBS_VERSION_OVERRIDE=${version} -DENABLE_JACK=ON
  -DENABLE_VST=OFF -DENABLE_AJA=OFF -DCALM_DEPRECATION=ON
- -DCEF_ROOT_DIR=../cef_binary_5060_linux64"
+ -DCEF_ROOT_DIR=../${_cefroot}"
 hostmakedepends="git curl tar pkg-config swig python3-devel qt6-base"
 makedepends="LuaJIT-devel fdk-aac-devel ffmpeg-devel glu-devel
  jack-devel libXcomposite-devel libcurl-devel libva-devel
@@ -27,11 +28,5 @@ do_fetch()
 	git submodule update --init --recursive plugins/obs-browser
 	git submodule update --init --recursive plugins/obs-websocket
 	git checkout tags/${version}
-	curl https://cdn-fastly.obsproject.com/downloads/cef_binary_5060_linux64.tar.bz2 | tar -xj
-}
-
-pre_configure() {
-	# it's not enough to use -DENABLE_BROWSER ...
-	touch plugins/obs-browser/CMakeLists.txt
-	touch plugins/obs-websocket/CMakeLists.txt
+	curl https://cdn-fastly.obsproject.com/downloads/${_cefroot}.tar.bz2 | tar -xj
 }
